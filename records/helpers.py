@@ -2,7 +2,7 @@
 
 medical_ranges = {
     "Hemoglobin": {"unit": "gm/dL", "low": 13.5, "high": 18.0},
-    "WBC": {"unit": "10^9/L", "low": 4.0, "high": 11.0},
+    "WBC": {"unit": "10^9/L", "low": 4000, "high": 11000},
     "Platelets": {"unit": "10^9/L", "low": 150, "high": 400},
     "Lymphocytes": {"unit": "%", "low": 20, "high": 40},
     "Mean Platelet Volume (MPV)": {"unit": "fL", "low": 7.2, "high": 11.7},
