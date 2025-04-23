@@ -4,6 +4,10 @@ medical_ranges = {
     "Hemoglobin": {"unit": "gm/dL", "low": 13.5, "high": 18.0},
     "WBC": {"unit": "10^9/L", "low": 4.0, "high": 11.0},
     "Platelets": {"unit": "10^9/L", "low": 150, "high": 400},
+    "Lymphocytes": {"unit": "%", "low": 20, "high": 40},
+    "Mean Platelet Volume (MPV)": {"unit": "fL", "low": 7.2, "high": 11.7},
+    "PDW": {"unit": "%", "low": 9, "high": 11.7},
+    "Bilirubin - Total": {"unit": "mg/dL", "low": 0.4, "high": 1.2}
     
 }
 
@@ -25,5 +29,9 @@ term_simplifications = {
         "definition": "A condition where you have fewer platelets than normal, which can affect clotting.",
         "domain": "Hematology"
     },
+    "PDW": {
+        "definition": "Platelate Distribution Width",
+        "domain": "hematology"
+    }
     
 }
