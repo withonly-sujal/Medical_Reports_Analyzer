@@ -24,4 +24,5 @@ urlpatterns = [
     path('upload/', views.upload_document, name='upload'),
     #path('', lambda request: redirect('upload/')),
     path('', views.homepage, name='home'),
+    path('translate/', views.translated_terms, name='translate'),
 ]

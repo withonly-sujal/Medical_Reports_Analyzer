@@ -78,5 +78,13 @@
         <h2>Full Extracted Report Text</h2>
         <pre>{{ raw_text }}</pre>
     </div>
+
+    <form method="POST" action="{% url 'translate' %}">
+        {% csrf_token %}
+        <input type="hidden" name="text" value="{{ raw_text }}">
+        <button type="submit">Simplify Medical Terms</button>
+    </form>
+    
+
 </body>
 </html>

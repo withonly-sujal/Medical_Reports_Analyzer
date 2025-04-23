@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Medical Term Simplifier</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f8f9fa;
+        }
+        h1 {
+            color: #333;
+        }
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ccc;
+            text-align: left;
+        }
+        .no-terms {
+            font-style: italic;
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+    <h1>Translated Medical Terms</h1>
+    {% if matched_terms %}
+        <table>
+            <tr><th>Term</th><th>Definition</th><th>Medical Domain</th></tr>
+            {% for item in matched_terms %}
+            <tr>
+                <td>{{ item.term }}</td>
+                <td>{{ item.definition }}</td>
+                <td>{{ item.domain }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p class="no-terms">No complex medical terms were found in your document.</p>
+    {% endif %}
+</body>
+</html>
