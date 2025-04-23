@@ -30,7 +30,7 @@ term_simplifications = {
         "domain": "Hematology"
     },
     "PDW": {
-        "definition": "Platelate Distribution Width",
+        "definition": "Platelate Distribution Width, suggest conditions like inflammation, cancer, or vascular diseases",
         "domain": "hematology"
     }
     
