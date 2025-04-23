@@ -4,6 +4,11 @@ import pdfplumber
 import re
 from .helpers import medical_ranges
 
+from django.shortcuts import render, redirect 
+
+def homepage(request):
+    return render(request, 'home.html')
+
 def upload_document(request):
     if request.method == 'POST' and request.FILES.get('document'):
         file = request.FILES['document']
