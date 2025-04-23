@@ -22,5 +22,6 @@ from django.shortcuts import redirect
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('upload/', views.upload_document, name='upload'),
-    path('', lambda request: redirect('upload/')),
+    #path('', lambda request: redirect('upload/')),
+    path('', views.homepage, name='home'),
 ]

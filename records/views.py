@@ -3,6 +3,12 @@ from django.http import JsonResponse
 import pdfplumber
 from .models import MedicalTerm
 
+from django.shortcuts import render, redirect
+
+def homepage(request):
+    return render(request, 'home.html')
+
+
 def upload_document(request):
     if request.method == 'POST' and request.FILES['document']:
         file = request.FILES['document']
@@ -17,3 +23,5 @@ def upload_document(request):
 
         return JsonResponse({'message': 'File processed successfully', 'data': text})
     return render(request, 'upload.html')
+
+
