@@ -15,7 +15,7 @@ from .models import UploadedReport  # ✅ Import the model to save reports
 def homepage(request):
     return render(request, 'home.html')
 
-@login_required
+
 def upload_document(request):
     if request.method == 'POST' and request.FILES.get('document'):
         file = request.FILES['document']
@@ -99,7 +99,7 @@ def translated_terms(request):
     return redirect('home')
 
 
-@login_required
+
 def view_reports(request):
     reports = UploadedReport.objects.all().order_by('-uploaded_at')
     return render(request, 'report_list.html', {'reports': reports})
