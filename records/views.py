@@ -4,13 +4,18 @@ import pdfplumber
 import re
 import json
 
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import login
+from django.contrib.auth.decorators import login_required
+
+
 from .helpers import medical_ranges, term_simplifications
 from .models import UploadedReport  # ✅ Import the model to save reports
 
 def homepage(request):
     return render(request, 'home.html')
 
-
+@login_required
 def upload_document(request):
     if request.method == 'POST' and request.FILES.get('document'):
         file = request.FILES['document']
@@ -93,6 +98,19 @@ def translated_terms(request):
 
     return redirect('home')
 
+
+@login_required
 def view_reports(request):
     reports = UploadedReport.objects.all().order_by('-uploaded_at')
     return render(request, 'report_list.html', {'reports': reports})
+
+def signup(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)  # auto-login after sign up
+            return redirect('home')
+    else:
+        form = UserCreationForm()
+    return render(request, 'signup.html', {'form': form})
