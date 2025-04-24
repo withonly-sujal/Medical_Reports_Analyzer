@@ -15,4 +15,10 @@ class UploadedReport(models.Model):
     filename = models.CharField(max_length=255)
     uploaded_at = models.DateTimeField(auto_now_add=True)
     extracted_text = models.TextField()
-    parsed_data = models.JSONField()  # stores highlights (test, value, status, etc.)
+    parsed_data = models.JSONField()
+    pdf_file = models.FileField(
+        upload_to='uploaded_reports/',
+        null=True,     
+        blank=True     
+    )
+

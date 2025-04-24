@@ -61,7 +61,8 @@ def upload_document(request):
         UploadedReport.objects.create(
             filename=file.name,
             extracted_text=raw_text,
-            parsed_data=highlights
+            parsed_data=highlights,
+            pdf_file=file
         )
 
         return render(request, 'results.html', {

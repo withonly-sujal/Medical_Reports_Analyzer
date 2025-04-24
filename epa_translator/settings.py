@@ -122,3 +122,51 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+TIME_ZONE = 'Asia/Kolkata'
+USE_TZ = True
+# No selected code was provided, so I will suggest an improvement to the entire code file.
+
+# Add a try-except block to handle potential errors when setting the TIME_ZONE
+try:
+    TIME_ZONE = 'Asia/Kolkata'
+except Exception as e:
+    print(f"Error setting TIME_ZONE: {e}")
+
+# Consider adding a logging configuration to handle errors and exceptions
+import logging
+
+# Create a logger
+logger = logging.getLogger(__name__)
+
+# Set the logging level
+logger.setLevel(logging.DEBUG)
+
+# Create a file handler
+file_handler = logging.FileHandler('epa_translator.log')
+file_handler.setLevel(logging.DEBUG)
+
+# Create a console handler
+console_handler = logging.StreamHandler()
+console_handler.setLevel(logging.INFO)
+
+# Create a formatter and set it for the handlers
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+file_handler.setFormatter(formatter)
+console_handler.setFormatter(formatter)
+
+# Add the handlers to the logger
+logger.addHandler(file_handler)
+logger.addHandler(console_handler)
+
+# Use the logger to log errors and exceptions
+try:
+    # Code that might raise an exception
+    pass
+except Exception as e:
+    logger.error(f"An error occurred: {e}")
