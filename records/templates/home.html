@@ -24,7 +24,13 @@
 
         h1 {
             color: #333;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
         }
 
         .feature-button {
@@ -46,7 +52,10 @@
 <body>
     <div class="container">
         <h1>Welcome to Smart ePA Translator</h1>
-        <a class="feature-button" href="{% url 'upload' %}">Upload & Translate ePA Document</a>
+        <div class="button-group">
+            <a class="feature-button" href="{% url 'upload' %}">Upload & Translate ePA Document</a>
+            <a class="feature-button" href="{% url 'view_reports' %}">View Uploaded Reports</a>
+        </div>
     </div>
 </body>
 </html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stored Reports</title>
+</head>
+<body>
+    <h1>Uploaded Reports</h1>
+    <ul>
+        {% for report in reports %}
+            <li>
+                <strong>{{ report.filename }}</strong> - {{ report.uploaded_at }}
+                <br>
+                <pre>{{ report.extracted_text|truncatechars:400 }}</pre>
+            </li>
+        {% empty %}
+            <li>No reports found.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

@@ -2,7 +2,10 @@ from django.shortcuts import render, redirect
 from django.http import JsonResponse
 import pdfplumber
 import re
+import json
+
 from .helpers import medical_ranges, term_simplifications
+from .models import UploadedReport  # ✅ Import the model to save reports
 
 def homepage(request):
     return render(request, 'home.html')
@@ -27,7 +30,8 @@ def upload_document(request):
             line_copy = line  # modified version of line
             for test, data in medical_ranges.items():
                 if test.lower() in line.lower():
-                    match = re.search(r"([0-9.]+)", line)
+                    pattern = rf"{re.escape(test)}.*?([0-9.]+)"
+                    match = re.search(pattern, line, re.IGNORECASE)
                     if match:
                         try:
                             value = float(match.group(1))
@@ -52,6 +56,13 @@ def upload_document(request):
             highlighted_lines.append(line_copy)
 
         raw_text = "\n".join(highlighted_lines)
+
+        # ✅ Save report to database
+        UploadedReport.objects.create(
+            filename=file.name,
+            extracted_text=raw_text,
+            parsed_data=highlights
+        )
 
         return render(request, 'results.html', {
             "highlights": highlights,
@@ -80,3 +91,7 @@ def translated_terms(request):
         })
 
     return redirect('home')
+
+def view_reports(request):
+    reports = UploadedReport.objects.all().order_by('-uploaded_at')
+    return render(request, 'report_list.html', {'reports': reports})
