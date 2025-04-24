@@ -43,7 +43,17 @@ medical_ranges = {
     "Oxygen Saturation (SpO2)": {"unit": "%", "low": 95, "high": 100},
     "Blood Glucose - Fasting": {"unit": "mg/dL", "low": 70, "high": 99},
     "Blood Glucose - Postprandial": {"unit": "mg/dL", "low": 80, "high": 140},
-    "HbA1c": {"unit": "%", "low": 4.0, "high": 5.6} 
+    "HbA1c": {"unit": "%", "low": 4.0, "high": 5.6},
+    "Absolute Lymphocyte Count": {"unit": "/uL", "low": 990.00, "high": 3150.00},
+    "CD3 (Total T cells)": {"unit": "%", "low": 59.00, "high": 83.00},
+    "Absolute CD3": {"unit": "/uL", "low": 677.00, "high": 2383.00},
+    "CD4 (Helper T cells)": {"unit": "%", "low": 31.00, "high": 59.00},
+    "Absolute CD4": {"unit": "/uL", "low": 424.00, "high": 1509.00},
+    "CD8 (Suppressor T cells)": {"unit": "%", "low": 12.00, "high": 38.00},
+    "Absolute CD8": {"unit": "/uL", "low": 169.00, "high": 955.00},
+    "CD4 / CD8": {"unit": "Ratio", "low": 1.00, "high": float('inf')}
+
+     
 }
 
 
@@ -170,6 +180,7 @@ term_simplifications = {
         "definition": "Elevated platelet count, which may increase the risk of clotting.",
         "domain": "Hematology"
     }
+    
 
 
 
