@@ -49,17 +49,25 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
 
-        button.toggle-btn {
+        .button-group {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .toggle-btn,
+        .action-btn {
             background-color: #007BFF;
             color: white;
-            padding: 8px 12px;
+            padding: 8px 14px;
             border: none;
             border-radius: 4px;
             cursor: pointer;
-            margin-top: 20px;
+            font-size: 14px;
         }
 
-        button.toggle-btn:hover {
+        .toggle-btn:hover,
+        .action-btn:hover {
             background-color: #0056b3;
         }
     </style>
@@ -90,17 +98,20 @@
     </table>
 
     <div class="raw-section">
-        <button class="toggle-btn" onclick="toggleText()">Show Extracted Text</button>
+        <div class="button-group">
+            <button class="toggle-btn" onclick="toggleText()">Show Extracted Text</button>
+
+            <form method="POST" action="{% url 'translate' %}">
+                {% csrf_token %}
+                <input type="hidden" name="text" value="{{ raw_text }}">
+                <button type="submit" class="action-btn">Simplify Medical Terms</button>
+            </form>
+        </div>
+
         <div id="rawTextBox" style="display: none; margin-top: 10px;">
             <pre>{{ raw_text }}</pre>
         </div>
     </div>
-
-    <form method="POST" action="{% url 'translate' %}">
-        {% csrf_token %}
-        <input type="hidden" name="text" value="{{ raw_text }}">
-        <button type="submit">Simplify Medical Terms</button>
-    </form>
 
     <script>
         function toggleText() {
