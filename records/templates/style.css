@@ -1,0 +1,92 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-image: url('Screenshot (19).png'); /* Ensure this filename matches yours */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.header {
+    background-color: #6B96E4;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between; /* Ensures space between title and buttons */
+    align-items: center;
+    width: 100%;
+}
+
+.title {
+    margin: 0;
+    font-size: 52px; /* Even bigger font */
+    color: white;
+    flex-shrink: 0; /* Prevent shrinking of the title */
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 10px;
+    margin-left: auto; /* Pushes buttons to the right */
+}
+
+.btn {
+    background-color: #3A3CB1;
+    color: white;
+    padding: 10px 16px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #2e2f95;
+}
+
+.login-btn {
+    background-color: #3A3CB1;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.dropdown-container {
+    margin: 20px;
+    padding: 0;
+}
+
+.info-icon {
+    font-size: 24px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: white;
+}
+
+.info-text {
+    display: none;
+    margin-top: 10px;
+    font-size: 16px;
+    line-height: 1.5;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 8px;
+    max-width: 600px;
+}
